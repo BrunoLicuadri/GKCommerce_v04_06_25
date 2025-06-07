@@ -2,11 +2,20 @@ package com.devsuperior.gkcommerce.dtos;
 
 import com.devsuperior.gkcommerce.entities.Product;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
+
 public class ProductDTO {
 	
 	private Long id;
+	@NotBlank(message = "Mandatory field")
+	@Size(min = 3, max = 30, message = "Name must have min of 3 and max of 30 characters")
 	private String name;
+	@NotBlank(message = "Mandatory field")
+	@Size(min = 10, message = "Description must have a min of 10 characters")
 	private String description;
+	@Positive(message = "Price must be a posivitive value")
 	private Double price;
 	private String imgUrl;
 
